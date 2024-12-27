@@ -1,0 +1,16 @@
+:root {
+  --white: #ffffff;
+  --green: #1ea475;
+
+  --orange-700: #c83b0e;
+  --orange-600: #da4716;
+
+  --rose-50: #fcf8f5;
+  --rose-100: #f4edeb;
+  --rose-300: #c9aea6;
+  --rose-400: #ad8985;
+  --rose-500: #87635a;
+  --rose-900: #260f08;
+
+  --text-preset-3: normal 500 1rem/1 "RedHat", sans-serif;
+}

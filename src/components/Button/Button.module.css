@@ -1,0 +1,19 @@
+.button {
+  font: var(--text-preset-3);
+  color: var(--white);
+  background-color: var(--orange-700);
+  padding: 1.25rem 1.35rem;
+  border: none;
+  border-radius: 1.75rem;
+  margin: 3rem;
+  cursor: pointer;
+  transition: scale 0.35s ease, background-color 0.35s ease;
+}
+
+.button:hover {
+  background-color: var(--orange-600);
+}
+
+.button:active {
+  scale: 0.97;
+}

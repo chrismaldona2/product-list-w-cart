@@ -1,0 +1,52 @@
+.product {
+  font-family: "Manrope", sans-serif;
+
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  align-items: start;
+  max-width: 250px;
+
+  margin: 2rem;
+}
+
+.product__thumbnail {
+  border-radius: 0.5rem;
+}
+
+.product__info {
+  font-family: inherit;
+  line-height: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+}
+
+.product__category {
+  font-size: 1rem;
+  font-weight: 400;
+  color: var(--rose-300);
+}
+
+.product__name {
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--rose-900);
+}
+
+.product__price {
+  font-size: 1.15rem;
+  font-weight: 500;
+  color: var(--orange-700);
+}
+
+.product__image-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.product__add-cart-btn {
+  margin-top: -1.4rem;
+  width: 65%;
+}
