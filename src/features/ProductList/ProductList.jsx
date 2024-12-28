@@ -9,8 +9,8 @@ export default function ProductList() {
     <section className={styles["product-list__container"]}>
       <h1 className={styles["product-list__category-title"]}>Desserts</h1>
       <ul className={styles["product-list"]}>
-        {menu.map((meal, index) => {
-          return <Product data={meal} key={index} />;
+        {menu.map((meal) => {
+          return <Product data={meal} key={meal.id} />;
         })}
       </ul>
     </section>

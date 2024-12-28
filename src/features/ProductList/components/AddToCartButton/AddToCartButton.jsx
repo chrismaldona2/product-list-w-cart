@@ -1,6 +1,8 @@
-import { useState } from "react";
 import styles from "./AddToCardButton.module.css";
 import { concatClassNames as cn } from "@/helpers/concatClassNames";
+import { useCallback } from "react";
+import useCart from "@/hooks/useCart";
+import { motion } from "motion/react";
 import PropTypes from "prop-types";
 
 const icons = {
@@ -32,40 +34,51 @@ const icons = {
   ),
 };
 
-export default function AddToCartButton({ className }) {
-  const [count, setCount] = useState(0);
+export default function AddToCartButton({ className, product }) {
+  const { getProductQuantity, addToCart, removeOneFromCart } = useCart();
 
-  const increase = () => {
-    setCount((prev) => prev + 1);
-  };
-  const decrease = () => {
-    setCount((prev) => prev - 1);
-  };
+  const quantity = getProductQuantity(product.id);
+  const handleAdd = useCallback(() => addToCart(product), [addToCart, product]);
+  const handleRemove = useCallback(
+    () => removeOneFromCart(product),
+    [removeOneFromCart, product]
+  );
 
-  if (count === 0)
+  if (quantity === 0)
     return (
       <div className={cn(styles["add-cart-button__container"], className)}>
-        <button className={styles["add-cart-button"]} onClick={increase}>
+        <button className={styles["add-cart-button"]} onClick={handleAdd}>
           {icons.addToCart}
           Add to Cart
         </button>
       </div>
     );
 
-  if (count > 0)
+  if (quantity > 0)
     return (
-      <div className={cn(styles["cart-count__container"], className)}>
-        <button className={styles["cart-count__button"]} onClick={decrease}>
+      <motion.div
+        className={cn(styles["cart-count__container"], className)}
+        initial={{ scale: 0.95 }}
+        animate={{ scale: 1 }}
+        transition={{ type: "spring", duration: 0.35 }}
+      >
+        <button className={styles["cart-count__button"]} onClick={handleRemove}>
           {icons.decrease}
         </button>
-        <span className={styles["card-count"]}>{count}</span>
-        <button className={styles["cart-count__button"]} onClick={increase}>
+        <span className={styles["card-count"]}>{quantity}</span>
+        <button className={styles["cart-count__button"]} onClick={handleAdd}>
           {icons.increase}
         </button>
-      </div>
+      </motion.div>
     );
 }
 
 AddToCartButton.propTypes = {
   className: PropTypes.string,
+  product: PropTypes.shape({
+    id: PropTypes.number.isRequired,
+    name: PropTypes.string.isRequired,
+    category: PropTypes.string,
+    price: PropTypes.number.isRequired,
+  }).isRequired,
 };

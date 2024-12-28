@@ -1,10 +1,13 @@
 import AddToCartButton from "../AddToCartButton/AddToCartButton";
 import styles from "./Product.module.css";
 import PropTypes from "prop-types";
+import useCart from "@/hooks/useCart";
 
-function Product({ data }) {
+const Product = ({ data }) => {
   const { name, category, price } = data;
   const { thumbnail, mobile, tablet, desktop } = data.image;
+  const { isProductInCart } = useCart();
+  const isInCart = isProductInCart(data.id);
 
   return (
     <article className={styles.product}>
@@ -16,10 +19,15 @@ function Product({ data }) {
           <img
             src={thumbnail}
             alt={name}
-            className={styles.product__thumbnail}
+            className={`${styles.product__thumbnail} ${
+              isInCart && styles["product__thumbnail--inCart"]
+            }`}
           />
         </picture>
-        <AddToCartButton className={styles["product__add-cart-btn"]} />
+        <AddToCartButton
+          className={styles["product__add-cart-btn"]}
+          product={data}
+        />
       </div>
       <div className={styles.product__info}>
         <span className={styles.product__category}>{category}</span>
@@ -28,10 +36,11 @@ function Product({ data }) {
       </div>
     </article>
   );
-}
+};
 
 Product.propTypes = {
   data: PropTypes.shape({
+    id: PropTypes.number.isRequired,
     image: PropTypes.shape({
       thumbnail: PropTypes.string,
       mobile: PropTypes.string,

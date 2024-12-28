@@ -1,0 +1,29 @@
+.item {
+  font-family: inherit;
+  list-style: none;
+  border-bottom: solid 1px var(--gray);
+  padding-block: 1rem;
+}
+
+.item__info {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.45rem;
+}
+
+.item__name {
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+.item__pricing {
+  display: flex;
+  gap: 0.35rem;
+  font-size: 0.95rem;
+}
+
+.item__quantity {
+  color: var(--orange-700);
+  font-weight: 600;
+}

@@ -20,6 +20,12 @@
   justify-content: center;
   border: solid 1px var(--rose-500);
   cursor: pointer;
+
+  transition: scale 0.35s ease;
+}
+
+.add-cart-button:active {
+  scale: 0.95;
 }
 
 .add-cart-button svg {
@@ -55,6 +61,10 @@
   justify-content: center;
 
   cursor: pointer;
+}
+
+.cart-count__button:active {
+  scale: 0.96;
 }
 
 .cart-count__button:hover {

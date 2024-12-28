@@ -1,7 +1,8 @@
 .product-list__category-title {
-  font-size: 2rem;
+  font-size: 2.15rem;
+  line-height: 1;
   color: var(--rose-900);
-  margin-bottom: 1.5rem;
+  margin-bottom: 2rem;
 }
 
 .product-list {

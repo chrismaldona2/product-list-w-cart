@@ -1,6 +1,8 @@
 import styles from "./ProductCart.module.css";
 import Button from "@/components/Button/Button";
+import useCart from "@/hooks/useCart";
 import { motion } from "motion/react";
+import ProductCartItem from "./components/ProductCartItem/ProductCartItem";
 
 const icons = {
   three: (
@@ -69,7 +71,9 @@ const icons = {
 };
 
 export default function ProductCart() {
-  const count = 1;
+  const { cart, getTotalQuantity, getTotalPrice } = useCart();
+  const quantity = getTotalQuantity();
+  const totalPrice = getTotalPrice();
 
   return (
     <motion.section
@@ -82,16 +86,29 @@ export default function ProductCart() {
         type: "spring",
         duration: 0.25,
       }}
+      layout
     >
-      <h2 className={styles.cart__title}>Your cart &#40;{count}&#41;</h2>
+      <motion.h2 className={styles.cart__title} layout>
+        Your Cart &#40;{quantity}&#41;
+      </motion.h2>
 
-      {count === 0 ? (
+      {quantity === 0 ? (
         <div className={styles["cart__content--empty"]}>
           {icons.cake}
           <span>Your added items will appear here</span>
         </div>
       ) : (
         <div>
+          <ul className={styles.cart__list}>
+            {cart.map((item, index) => {
+              return <ProductCartItem product={item} key={index} />;
+            })}
+          </ul>
+
+          <div className={styles["cart__total-container"]}>
+            <span className={styles["cart__total-label"]}>Order Total</span>
+            <span className={styles.cart__total}>&#36;{totalPrice}</span>
+          </div>
           <div className={styles.cart__advice}>
             {icons.three}
             <span>

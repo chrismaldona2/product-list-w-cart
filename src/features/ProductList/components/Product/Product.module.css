@@ -8,6 +8,11 @@
 .product__thumbnail {
   width: 100%;
   border-radius: 0.5rem;
+  transition: box-shadow 0.25s ease;
+}
+
+.product__thumbnail--inCart {
+  box-shadow: 0 0 0 2px var(--orange-700);
 }
 
 .product__info {
