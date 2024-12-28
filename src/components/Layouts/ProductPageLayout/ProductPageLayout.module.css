@@ -1,0 +1,21 @@
+.layout {
+  min-height: 100dvh;
+  padding: min(5vw, 4.25rem) min(5vw, 5.5rem);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2.25rem;
+  position: relative;
+  align-items: start;
+  justify-content: center;
+}
+
+.layout > div:first-child {
+  flex: 1;
+}
+
+.layout > div:last-child {
+  flex: auto;
+  max-width: 26.5rem;
+  position: sticky;
+  top: 2rem;
+}

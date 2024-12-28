@@ -1,14 +1,15 @@
 import "@/styles/global.css";
 import "@/styles/variables.css";
-import Button from "@/components/Button/Button";
+import ProductCart from "@/features/ProductCart/ProductCart";
 import ProductList from "@/features/ProductList/ProductList";
+import ProductPageLayout from "@/components/Layouts/ProductPageLayout/ProductPageLayout";
 
 function App() {
   return (
-    <>
+    <ProductPageLayout>
       <ProductList />
-      <Button>Confirm order</Button>
-    </>
+      <ProductCart />
+    </ProductPageLayout>
   );
 }
 

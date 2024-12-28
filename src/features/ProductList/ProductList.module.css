@@ -1,5 +1,12 @@
+.product-list__category-title {
+  font-size: 2rem;
+  color: var(--rose-900);
+  margin-bottom: 1.5rem;
+}
+
 .product-list {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  width: min(1000px, 90%);
+  grid-template-columns: repeat(auto-fill, minmax(225px, 1fr));
+  grid-auto-flow: row;
+  gap: 2rem 1.5rem;
 }

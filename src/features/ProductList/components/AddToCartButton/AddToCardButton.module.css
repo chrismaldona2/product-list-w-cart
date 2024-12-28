@@ -14,6 +14,8 @@
   color: var(--rose-900);
   font-weight: 600;
   font-size: 0.85rem;
+  white-space: nowrap;
+
   background-color: var(--white);
   justify-content: center;
   border: solid 1px var(--rose-500);
@@ -40,7 +42,7 @@
 
 .cart-count__button {
   background: none;
-  outline: none;
+
   padding: 0.25rem;
   background-color: var(--orange-700);
 
