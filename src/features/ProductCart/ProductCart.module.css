@@ -2,6 +2,18 @@
   background-color: var(--white);
   padding: 1.75rem;
   border-radius: 1rem;
+  max-height: 93dvh;
+  overflow-y: auto;
+}
+
+.cart::-webkit-scrollbar {
+  width: 10px;
+  background-color: none;
+}
+
+.cart::-webkit-scrollbar-thumb {
+  background-color: var(--gray);
+  border-radius: 1rem;
 }
 
 .cart__title {
