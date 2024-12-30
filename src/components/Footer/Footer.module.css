@@ -1,0 +1,14 @@
+.footer {
+  font-weight: 600;
+  font-size: 0.85rem;
+  color: var(--rose-300);
+
+  display: flex;
+  justify-content: center;
+  padding: 1rem;
+}
+
+.footer_link {
+  text-decoration: none;
+  color: var(--rose-500);
+}

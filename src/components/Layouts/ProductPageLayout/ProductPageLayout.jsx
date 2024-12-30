@@ -6,7 +6,7 @@ function ProductPageLayout({ children }) {
   return (
     <div className={styles.layout}>
       <div>{left}</div>
-      <div> {right}</div>
+      <div>{right}</div>
     </div>
   );
 }

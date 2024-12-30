@@ -1,5 +1,5 @@
-import { useContext } from "react";
 import { CartContext } from "@/contexts/CartContext";
+import { useContext, useMemo } from "react";
 
 export default function useCart() {
   const {
@@ -8,22 +8,21 @@ export default function useCart() {
     removeOneFromCart,
     removeFromCart,
     getProductQuantity,
+    clearCart,
   } = useContext(CartContext);
 
+  const getTotalPrice = useMemo(() => {
+    return cart
+      .reduce((total, product) => total + product.quantity * product.price, 0)
+      .toFixed(2);
+  }, [cart]);
+
   const getTotalQuantity = () => {
-    return cart.reduce((total, item) => total + item.quantity, 0);
+    return cart.reduce((total, product) => total + product.quantity, 0);
   };
 
-  const getTotalPrice = () => {
-    const total = cart.reduce(
-      (total, item) => total + item.quantity * item.price,
-      0
-    );
-    return total.toFixed(2);
-  };
-
-  const isProductInCart = (productId) => {
-    return cart.some((item) => item.id === productId);
+  const isProductInCart = (id) => {
+    return cart.some((product) => product.id === id);
   };
 
   return {
@@ -35,5 +34,6 @@ export default function useCart() {
     getTotalPrice,
     isProductInCart,
     getProductQuantity,
+    clearCart,
   };
 }

@@ -1,11 +1,11 @@
-import { useReducer } from "react";
-
-export const cartInitialState = [];
+import { useReducer, useEffect } from "react";
+import { useLocalStorage } from "@/hooks/useLocalStorage";
 
 export const CART_ACTION_TYPES = {
   ADD_TO_CART: "ADD_TO_CART",
   REMOVE_ONE_FROM_CART: "REMOVE_ONE_FROM_CART",
   REMOVE_FROM_CART: "REMOVE_FROM_CART",
+  CLEAR_CART: "CLEAR_CART",
 };
 
 export const cartReducer = (state, action) => {
@@ -56,13 +56,24 @@ export const cartReducer = (state, action) => {
       return state.filter((item) => item.id !== payload.id);
     }
 
+    case CART_ACTION_TYPES.CLEAR_CART: {
+      return [];
+    }
+
     default:
-      return state;
+      throw new Error(`Unhandled action type: ${type}`);
   }
 };
 
 export default function useCartReducer() {
-  const [state, dispatch] = useReducer(cartReducer, cartInitialState);
+  const { getItem, setItem } = useLocalStorage("cart");
+  const initialState = getItem() || [];
+
+  const [state, dispatch] = useReducer(cartReducer, initialState);
+
+  useEffect(() => {
+    setItem(state);
+  }, [state, setItem]);
 
   const addToCart = (product) =>
     dispatch({
@@ -84,5 +95,11 @@ export default function useCartReducer() {
     });
   };
 
-  return { state, addToCart, removeOneFromCart, removeFromCart };
+  const clearCart = () => {
+    dispatch({
+      type: CART_ACTION_TYPES.CLEAR_CART,
+    });
+  };
+
+  return { state, addToCart, removeOneFromCart, removeFromCart, clearCart };
 }

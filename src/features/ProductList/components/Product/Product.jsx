@@ -3,21 +3,22 @@ import styles from "./Product.module.css";
 import PropTypes from "prop-types";
 import useCart from "@/hooks/useCart";
 
-const Product = ({ data }) => {
-  const { name, category, price } = data;
-  const { thumbnail, mobile, tablet, desktop } = data.image;
+const Product = ({ product }) => {
+  const { name, category } = product;
+  const { mobile, tablet, desktop } = product.image;
   const { isProductInCart } = useCart();
-  const isInCart = isProductInCart(data.id);
+
+  const price = product.price.toFixed(2);
+  const isInCart = isProductInCart(product.id);
 
   return (
     <article className={styles.product}>
       <div className={styles["product__image-container"]}>
         <picture>
-          <source media="(min-width: 1200px)" srcSet={desktop} />
-          <source media="(min-width: 768px)" srcSet={tablet} />
-          <source media="(max-width: 767px)" srcSet={mobile} />
+          <source media="(min-width: 900px)" srcSet={desktop} />
+          <source media="(min-width: 550px)" srcSet={tablet} />
           <img
-            src={thumbnail}
+            src={mobile}
             alt={name}
             className={`${styles.product__thumbnail} ${
               isInCart && styles["product__thumbnail--inCart"]
@@ -26,7 +27,7 @@ const Product = ({ data }) => {
         </picture>
         <AddToCartButton
           className={styles["product__add-cart-btn"]}
-          product={data}
+          product={product}
         />
       </div>
       <div className={styles.product__info}>
@@ -39,7 +40,7 @@ const Product = ({ data }) => {
 };
 
 Product.propTypes = {
-  data: PropTypes.shape({
+  product: PropTypes.shape({
     id: PropTypes.number.isRequired,
     image: PropTypes.shape({
       thumbnail: PropTypes.string,

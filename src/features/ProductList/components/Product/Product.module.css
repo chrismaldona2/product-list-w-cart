@@ -1,12 +1,17 @@
 .product {
   display: flex;
   flex-direction: column;
-  gap: 0.75rem;
+  gap: 0.85rem;
   align-items: start;
 }
 
+.product__image-container,
+.product__image-container picture {
+  min-width: 100%;
+}
+
 .product__thumbnail {
-  width: 100%;
+  min-width: 100%;
   border-radius: 0.5rem;
   transition: box-shadow 0.25s ease;
 }
@@ -36,7 +41,7 @@
 }
 
 .product__price {
-  font-size: 1.15rem;
+  font-size: 1rem;
   font-weight: 600;
   color: var(--orange-700);
 }
@@ -49,6 +54,6 @@
 
 .product__add-cart-btn {
   margin-top: -1.4rem;
-  width: 65%;
   min-height: 2.625rem;
+  max-width: 150px;
 }

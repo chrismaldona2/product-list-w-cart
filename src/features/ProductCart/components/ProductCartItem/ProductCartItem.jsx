@@ -1,14 +1,29 @@
 import PropTypes from "prop-types";
 import styles from "./ProductCartItem.module.css";
+import { icons } from "@/assets/icons";
+import useCart from "@/hooks/useCart";
+import { motion } from "motion/react";
 
 export default function ProductCartItem({ product }) {
   const { name, quantity } = product;
-
   const price = product.price.toFixed(2);
   const total = product.total.toFixed(2);
 
+  const { removeFromCart } = useCart();
+  const handleRemove = () => {
+    removeFromCart(product);
+  };
+
   return (
-    <li className={styles.item}>
+    <motion.li
+      className={styles.item}
+      initial={{ scale: 0.75 }}
+      animate={{ scale: 1 }}
+      transition={{
+        duration: 0.35,
+        type: "spring",
+      }}
+    >
       <div className={styles.item__info}>
         <span className={styles.item__name}>{name}</span>
         <div className={styles.item__pricing}>
@@ -18,7 +33,16 @@ export default function ProductCartItem({ product }) {
           <span className={styles.item__total}>&#36;{total}</span>
         </div>
       </div>
-    </li>
+      <div className={styles.item__actions}>
+        <button
+          className={styles.item__delete}
+          onClick={handleRemove}
+          aria-label="Remove item"
+        >
+          {icons.remove}
+        </button>
+      </div>
+    </motion.li>
   );
 }
 
