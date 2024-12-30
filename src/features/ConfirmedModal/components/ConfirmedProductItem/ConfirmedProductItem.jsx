@@ -10,7 +10,13 @@ export default function ProductCartItem({ product }) {
   return (
     <li className={styles.item}>
       <div className={styles.item__left}>
-        <img src={thumbnail} alt={name} className={styles.item__thumbnail} />
+        <img
+          src={thumbnail}
+          alt={name}
+          className={styles.item__thumbnail}
+          width="100"
+          height="96"
+        />
         <div className={styles.item__info}>
           <span className={styles.item__name}>{name}</span>
           <div className={styles.item__pricing}>

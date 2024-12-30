@@ -12,6 +12,7 @@
 
 .product__thumbnail {
   min-width: 100%;
+  height: auto;
   border-radius: 0.5rem;
   transition: box-shadow 0.25s ease;
 }

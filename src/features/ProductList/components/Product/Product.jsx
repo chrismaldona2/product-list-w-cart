@@ -15,11 +15,23 @@ const Product = ({ product }) => {
     <article className={styles.product}>
       <div className={styles["product__image-container"]}>
         <picture>
-          <source media="(min-width: 900px)" srcSet={desktop} />
-          <source media="(min-width: 550px)" srcSet={tablet} />
+          <source
+            media="(min-width: 900px)"
+            srcSet={desktop}
+            width="502"
+            height="480"
+          />
+          <source
+            media="(min-width: 550px)"
+            srcSet={tablet}
+            width="427"
+            height="424"
+          />
           <img
             src={mobile}
             alt={name}
+            width="654"
+            height="424"
             className={`${styles.product__thumbnail} ${
               isInCart && styles["product__thumbnail--inCart"]
             }`}
