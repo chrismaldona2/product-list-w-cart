@@ -16,6 +16,7 @@
   height: 3rem;
   width: auto;
   border-radius: 0.25rem;
+  background-color: var(--gray);
 }
 
 .item__left {

@@ -15,6 +15,7 @@
   height: auto;
   border-radius: 0.5rem;
   transition: box-shadow 0.25s ease;
+  background-color: var(--gray);
 }
 
 .product__thumbnail--inCart {
