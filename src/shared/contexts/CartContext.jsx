@@ -1,5 +1,5 @@
 import { createContext, useCallback } from "react";
-import useCartReducer from "@/hooks/useCartReducer";
+import useCartReducer from "@/features/cart/hooks/useCartReducer";
 import PropTypes from "prop-types";
 
 export const CartContext = createContext();

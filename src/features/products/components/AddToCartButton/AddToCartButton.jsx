@@ -1,7 +1,7 @@
 import styles from "./AddToCardButton.module.css";
 import { concatClassNames as cn } from "@/helpers/concatClassNames";
 import { icons } from "@/assets/icons";
-import useCart from "@/hooks/useCart";
+import useCart from "@/features/cart/hooks/useCart";
 import { motion } from "motion/react";
 import PropTypes from "prop-types";
 

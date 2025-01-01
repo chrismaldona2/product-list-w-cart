@@ -1,4 +1,4 @@
-import { CartContext } from "@/contexts/CartContext";
+import { CartContext } from "@/shared/contexts/CartContext";
 import { useContext, useMemo } from "react";
 
 export default function useCart() {

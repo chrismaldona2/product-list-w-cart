@@ -1,13 +1,13 @@
-import styles from "./ProductCart.module.css";
-import Button from "@/components/Button/Button";
+import styles from "./Cart.module.css";
+import ProductCartItem from "./components/CartItem/CartItem";
+import ConfirmedModal from "./components/ConfirmedModal/ConfirmedModal";
+import useCart from "@/features/cart/hooks/useCart";
+import Button from "@/shared/components/Button/Button";
 import { icons } from "@/assets/icons";
 import { motion, AnimatePresence } from "motion/react";
 import { useState } from "react";
-import useCart from "@/hooks/useCart";
-import ProductCartItem from "./components/ProductCartItem/ProductCartItem";
-import ConfirmedModal from "@/features/ConfirmedModal/ConfirmedModal";
 
-export default function ProductCart() {
+export default function Cart() {
   const [isConfirmed, setIsConfirmed] = useState(false);
   const { cart, getTotalQuantity, getTotalPrice } = useCart();
   const totalPrice = getTotalPrice;

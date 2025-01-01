@@ -1,7 +1,7 @@
 import AddToCartButton from "../AddToCartButton/AddToCartButton";
 import styles from "./Product.module.css";
 import PropTypes from "prop-types";
-import useCart from "@/hooks/useCart";
+import useCart from "@/features/cart/hooks/useCart";
 
 const Product = ({ product }) => {
   const { name, category } = product;

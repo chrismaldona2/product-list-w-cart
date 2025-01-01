@@ -1,10 +1,10 @@
 import styles from "./ConfirmedModal.module.css";
-import Backdrop from "@/components/Backdrop/Backdrop";
-import Button from "@/components/Button/Button";
+import Backdrop from "@/shared/components/Backdrop/Backdrop";
+import Button from "@/shared/components/Button/Button";
 import { icons } from "@/assets/icons";
 import { motion } from "motion/react";
 import PropTypes from "prop-types";
-import useCart from "@/hooks/useCart";
+import useCart from "@/features/cart/hooks/useCart";
 import ConfirmedProductItem from "./components/ConfirmedProductItem/ConfirmedProductItem";
 
 export default function ConfirmedModal({ close }) {

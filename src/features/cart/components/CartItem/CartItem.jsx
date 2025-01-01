@@ -1,10 +1,10 @@
 import PropTypes from "prop-types";
-import styles from "./ProductCartItem.module.css";
+import styles from "./CartItem.module.css";
 import { icons } from "@/assets/icons";
-import useCart from "@/hooks/useCart";
+import useCart from "@/features/cart/hooks/useCart";
 import { motion } from "motion/react";
 
-export default function ProductCartItem({ product }) {
+export default function CartItem({ product }) {
   const { name, quantity } = product;
   const price = product.price.toFixed(2);
   const total = product.total.toFixed(2);
@@ -46,7 +46,7 @@ export default function ProductCartItem({ product }) {
   );
 }
 
-ProductCartItem.propTypes = {
+CartItem.propTypes = {
   product: PropTypes.shape({
     name: PropTypes.string.isRequired,
     price: PropTypes.number.isRequired,

@@ -1,7 +1,7 @@
 import PropTypes from "prop-types";
-import styles from "./ProductPageLayout.module.css";
+import styles from "./ProductsPageLayout.module.css";
 
-function ProductPageLayout({ children }) {
+function ProductsPageLayout({ children }) {
   const [left, right] = children;
   return (
     <div className={styles.layout}>
@@ -11,8 +11,8 @@ function ProductPageLayout({ children }) {
   );
 }
 
-ProductPageLayout.propTypes = {
+ProductsPageLayout.propTypes = {
   children: PropTypes.node.isRequired,
 };
 
-export default ProductPageLayout;
+export default ProductsPageLayout;

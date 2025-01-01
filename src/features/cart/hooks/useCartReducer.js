@@ -1,5 +1,5 @@
 import { useReducer, useEffect } from "react";
-import { useLocalStorage } from "@/hooks/useLocalStorage";
+import { useLocalStorage } from "@/shared/hooks/useLocalStorage";
 
 export const CART_ACTION_TYPES = {
   ADD_TO_CART: "ADD_TO_CART",
