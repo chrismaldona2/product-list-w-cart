@@ -3,6 +3,23 @@
   src: url("/src/assets/fonts/RedHatText_VariableFont.ttf") format("truetype");
 }
 
+:root {
+  --white: #ffffff;
+  --gray: #dcdcdc;
+  --green: #1ea475;
+
+  --orange-600: #da4716;
+  --orange-700: #c83b0e;
+  --orange-800: #952c0c;
+
+  --rose-50: #fcf8f5;
+  --rose-100: #f4edeb;
+  --rose-300: #c9aea6;
+  --rose-400: #ad8985;
+  --rose-500: #87635a;
+  --rose-900: #260f08;
+}
+
 body {
   background-color: var(--rose-50);
   font-family: "RedHat", system-ui, -apple-system, BlinkMacSystemFont,
@@ -12,67 +29,4 @@ body {
 
 ::selection {
   background-color: #c83c0e36;
-}
-
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-}
-
-* {
-  margin: 0;
-}
-
-body {
-  line-height: 1.5;
-  -webkit-font-smoothing: antialiased;
-}
-
-img,
-picture,
-video,
-canvas,
-svg {
-  display: block;
-  max-width: 100%;
-}
-
-input,
-button,
-textarea,
-select {
-  font: inherit;
-}
-
-p,
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  overflow-wrap: break-word;
-}
-
-p {
-  text-wrap: pretty;
-}
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  text-wrap: balance;
-}
-
-ul,
-li {
-  padding: 0;
-}
-
-#root,
-#__next {
-  isolation: isolate;
 }

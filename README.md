@@ -15,6 +15,8 @@ The website is the solution to the [Product List with Cart challenge](https://ww
 
 ## Preview
 
-![Desktop](/desktop-preview.jpg)
-![Tablet](/tablet-preview.jpg)
-![Mobile](/mobile-preview.jpg)
+<div class="grid cards" markdown>
+  <img src="/desktop-preview.jpg" width="100%">
+  <img src="/tablet-preview.jpg" width="75%">
+  <img src="/mobile-preview.jpg" width="35%">
+</div>

@@ -1,5 +1,5 @@
+import "@/styles/reset.css";
 import "@/styles/global.css";
-import "@/styles/variables.css";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import ProductsPage from "@/pages/products/ProductsPage";
 
